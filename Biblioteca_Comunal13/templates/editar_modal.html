@@ -1,0 +1,19 @@
+{% load static %}
+<div class="modal-header">
+  <div class="register__alldata">
+    <h5 class="modal-title">Editar {{ model_name }}</h5>
+    <button type="button" class="close-button" data-bs-dismiss="modal" aria-label="Cerrar">x</button>
+
+    <div class="modal-body">
+      <form method="post" id="editarForm" data-id="{{ object.id }}">
+        {% csrf_token %}
+        {{ form.as_p }}
+      </form>
+    </div>
+
+    <div class="modal-footer">
+      <button type="button" data-bs-dismiss="modal" class="cancel-button">Cancelar</button>
+      <button type="submit" form="editarForm">Guardar cambios</button>
+    </div>
+  </div>
+</div>

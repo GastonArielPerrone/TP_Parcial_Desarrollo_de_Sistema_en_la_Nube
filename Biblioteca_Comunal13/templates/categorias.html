@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="icon" href="{% static './multimedia/logo_BC13.ico' %}">
+    <title>Biblioteca Comunal 13 :: Categorías</title>
+</head>
+<body>
+  <header>
+    <img src="{% static './multimedia/logo_BC13.png' %}" width="150">
+  </header>
+  <input type="checkbox" id="menu-toggle">
+  <label for="menu-toggle" class="menu-icon">☰</label>
+  <nav class="nav__flex font__white">
+    <ul class="bona-nova-sc-regular">
+      <li><a href="{% url 'lista_usuarios' %}">Usuarios</a></li>
+      <li><a href="{% url 'lista_libros' %}">Libros</a></li>
+      <li><a href="{% url 'lista_autores' %}">Autores</a></li>
+      <li><a href="{% url 'lista_categorias' %}">Categorías</a></li>
+      <li><a href="{% url 'lista_editoriales' %}">Editoriales</a></li>
+      <li><a href="{% url 'lista_empleados' %}">Empleados</a></li>
+      <li><a href="{% url 'lista_prestamos' %}">Préstamos</a></li>
+      <li><a href="{% url 'index' %}">Cerrar sesión</a></li>
+    </ul>
+    {% if user.is_authenticated %}
+    <p style="font-size: 15px;">¡Hola, {{ user.nombre }}!🖐️</p>
+    {% endif %}
+  </nav>
+  <main>
+    <h1 class="bona-nova-sc-bold font__white">Categorías</h1>
+    <div class="register__alldata">
+      <h2 class="bona-nova-sc-bold">Filtrar Categorías</h2>
+      <form method="get">
+          {{ filtro_form.as_p }}
+          <button type="submit">Filtrar</button>
+      </form>
+    </div>
+    <table border="1" class="bona-nova-sc-regular">
+  <thead>
+    <tr>
+      <th><strong>ID</strong></th>
+      <th><strong>Categoría</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    {%for categoria in categorias%}
+    <tr>
+      <td>{{categoria.id}}</td>
+      <td>{{categoria.nombre}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<div class="register__alldata">
+  <h2 class="bona-nova-sc-bold">Registro de Categoría</h2>
+  <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Guardar</button>
+  </form>
+</div>
+  </main>
+  <footer>
+    <p class="bona-nova-sc-regular align__center">©Copyright Biblioteca Comunal 13.Todos los derechos reservados</p>
+  </footer>
+</body>
+</html>

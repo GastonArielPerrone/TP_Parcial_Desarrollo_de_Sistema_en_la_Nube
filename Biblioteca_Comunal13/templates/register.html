@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Biblioteca Comunal 13 :: Registro de empleados</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="login-container bona-nova-sc-bold">
+      <img src="{% static 'multimedia/logo_BC13.png' %}" alt="Logo Biblioteca Comunal 13" width="150" class="image__center">
+        <h2>Registro de empleado</h2>
+        <form method="post" action="{% url 'register' %}">
+                {% csrf_token %}
+                {% if form.non_field_errors %}
+                    <div style="color:red">{{ form.non_field_errors }}</div>
+                {% endif %}
+
+                <label>DNI:</label>
+                {{ form.dni.errors }}
+                {{ form.dni }}<br>
+
+                <label>Nombre:</label>
+                {{ form.nombre.errors }}
+                {{ form.nombre }}<br>
+
+                <label>Apellido:</label>
+                {{ form.apellido.errors }}
+                {{ form.apellido }}<br>
+
+                <label>E-mail:</label>
+                {{ form.email.errors }}
+                {{ form.email }}<br>
+
+                <label>Teléfono:</label>
+                {{ form.telefono.errors }}
+                {{ form.telefono }}<br>
+
+                <label>Cargo:</label>
+                {{ form.cargo.errors }}
+                {{ form.cargo }}<br>
+
+                <label>Staff Administrativo:</label>
+                {{ form.is_staff.errors }}
+                {{ form.is_staff }}<br>
+
+                <label>Empleado Activo</label>
+                {{ form.is_active.errors }}
+                {{ form.is_active }}<br>
+
+                <label>Fecha de contratación:</label>
+                {{ form.fecha_contratacion.errors }}
+                {{ form.fecha_contratacion }}<br>
+
+                <label>Contraseña:</label>
+                {{ form.password.errors }}
+                {{ form.password }}<br>
+
+                <label>Confirmar contraseña:</label>
+                {{ form.confirm_password.errors }}
+                {{ form.confirm_password }}<br>
+
+                <button type="submit">Registrar</button>
+        </form><br>
+        {% if error %}
+            <p style="color:red">{{ error }}</p>
+        {% endif %}
+        <a class="black-text-size bona-nova-sc-regular" href="{% url 'index' %}">Volver al login de empleados</a>
+    </div>
+</body>
+</html>

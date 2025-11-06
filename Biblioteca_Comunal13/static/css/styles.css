@@ -1,0 +1,408 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-size: 62.5%;
+    background-image: url("../multimedia/background.jpg");
+    background-size: cover;
+}
+
+main {
+    flex: 1;
+    padding: 1rem;
+}
+
+.login-container, .register-container {
+    background: #f9f9f9 !important;
+    display: inline-block;
+    padding: 2rem;
+    border-radius: 1rem;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.image__center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.links a{
+    margin-top: 1rem;
+    text-align: center;
+    text-decoration: underline !important;
+    font-size: 1.6rem;
+    color: black !important;
+}
+
+header,footer {
+    background-color: darkgrey;
+}
+
+nav {
+    background-color: black;
+    height: auto;
+}
+
+.align__center {
+    text-align: center;
+}
+
+p {
+    font-size: 2rem;
+}
+
+h1 {
+    font-size: 5rem;
+}
+
+h2 {
+    font-size: 4.5rem;
+}
+
+h3 {
+    font-size: 4rem;
+}
+
+h4 {
+    font-size: 3.5rem;
+}
+
+h5 {
+    font-size: 3rem;
+}
+
+h6 {
+    font-size: 2.5;
+}
+
+#menu-toggle {
+      display: none;
+    }
+
+    /* Estilo del ícono hamburguesa */
+.menu-icon {
+    display: none;
+    font-size: 30px;
+    color: white;
+    padding: 14px 20px;
+    cursor: pointer;
+}
+
+form {
+    margin-top: 1rem;
+    font-size: 1.8rem;
+}
+
+table {
+    background-color: aliceblue;
+    width: 80%;
+}
+
+td, th {
+    font-size: 1.5rem;
+}
+
+.font__white {
+    color: aliceblue;
+}
+
+.nav__flex {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-size: 2rem;
+}
+
+ul > li {
+    list-style: none;
+    display: inline;
+    margin-right: 20px;
+}
+
+.black-text-size {
+    color: black;
+    font-size: 1.6rem;
+    text-decoration: underline;
+}
+
+.register__alldata {
+    margin-top: 3rem;
+    padding: 1rem;
+    border: 2px solid black;
+    border-radius: 1rem;
+    background-color: #f9f9f9;
+    width: auto;
+}
+
+/* Google Fonts */
+.bona-nova-sc-regular {
+  font-family: "Bona Nova SC", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.bona-nova-sc-bold {
+  font-family: "Bona Nova SC", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.bona-nova-sc-regular-italic {
+  font-family: "Bona Nova SC", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+/* ================== MEDIA QUERIES ================== */
+
+/* Móvil pequeño (<420px) */
+@media (max-width: 420px) {
+    .nav__flex {
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+
+    ul > li {
+        display:none;
+        margin: 0.5rem 0;
+    }
+    a {
+        display: block;
+        padding: 0.6rem 1rem;
+        font-size: 1.8rem;
+    }
+    header img {
+        width: 120px;
+    }
+    table {
+        width: 100%;
+        display: block;
+        overflow-x: auto;
+        font-size: 1.4rem;
+    }
+
+    #menu-toggle:checked ~ nav ul {
+        display: flex;
+      }
+
+      .menu-icon {
+        display: block;
+        background-color: black;
+      }
+}
+
+/* Tablet vertical (421px - 767px) */
+@media (min-width: 421px) and (max-width: 767px) {
+    
+    nav ul {
+        display: none; /* Oculto por defecto */
+        flex-direction: column;
+      }
+    a { font-size: 1.9rem; padding: 0.5rem 0.8rem; }
+
+    header img { width: 140px; }
+
+    table { width: 100%; font-size: 1.45rem; display: block; overflow-x: auto; }
+
+     #menu-toggle:checked ~ nav ul {
+        display: flex;
+      }
+
+      .menu-icon {
+        display: block;
+        background-color: black;
+      }
+}
+
+/* Tablet horizontal / laptop pequeño (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    nav ul {
+        display: none; /* Oculto por defecto */
+        flex-direction: column;
+      }
+
+    a { font-size: 2rem; }
+    
+     #menu-toggle:checked ~ nav ul {
+        display: flex;
+      }
+
+      .menu-icon {
+        display: block;
+        background-color: black;
+      }
+}
+
+/* Escritorio (1024px - 1279px) */
+@media (min-width: 1024px) and (max-width: 1279px) {
+    
+    .nav__flex {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    a { font-size: 2rem; }
+
+    table { width: 80%; }
+
+    header img { width: 150px; }
+}
+
+/* Pantallas grandes (>=1280px) */
+@media (min-width: 1280px) {
+    .nav__flex { justify-content: space-around; }
+
+    a { font-size: clamp(2rem, 1.8vw, 2.4rem); }
+
+    table { width: 70%; }
+
+    header img { width: 180px; }
+
+    main { max-width: 1400px; margin: 0 auto; padding: 3rem; }
+}
+
+/* Ajustes extra para móviles/tablets */
+@media (max-width: 600px) {
+    html, body {
+        background-position: center top;
+        background-attachment: scroll;
+    }
+
+    nav ul {
+        display: none; /* Oculto por defecto */
+        flex-direction: column;
+      }
+
+    #menu-toggle:checked ~ nav ul {
+        display: flex;
+      }
+
+      .menu-icon {
+        display: block;
+        background-color: black;
+      }
+}
+
+.form-row {
+  margin-bottom: 16px;
+}
+
+.form-row label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #555;
+}
+
+.form-row input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-row input:focus {
+  border-color: #0a66a3;
+  box-shadow: 0 0 6px rgba(10, 102, 163, 0.2);
+  outline: none;
+}
+
+.errors {
+  margin-top: 6px;
+  font-size: 0.9rem;
+  color: #d93025;
+}
+
+.btn {
+  background: #0a66a3;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+  font-weight: 600;
+  transition: background 0.2s ease-in-out;
+}
+
+.btn:hover {
+  background: #084c7d;
+}
+
+.login-link {
+  margin-top: 16px;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.login-link a {
+  color: #0a66a3;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+/* Modal contenedor: superpuesto */
+#modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  display: none;
+}
+
+/* Fondo oscuro opcional */
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Contenido del modal centrado */
+.modal-content {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 600px;
+  max-width: 90%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  z-index: 10000;
+}
+
+/* Botón de cierre */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
