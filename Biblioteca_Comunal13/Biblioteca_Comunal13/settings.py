@@ -176,3 +176,7 @@ REST_FRAMEWORK = {
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend'
 ]
+
+# Configuración LDAP
+LDAP_HOST = "192.168.56.101"
+LDAP_DOMAIN = "IFTS"
