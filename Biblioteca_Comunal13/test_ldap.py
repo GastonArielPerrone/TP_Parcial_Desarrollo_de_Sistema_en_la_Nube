@@ -2,8 +2,8 @@ from ldap3 import Server, Connection, ALL, NTLM, core
 
 LDAP_SERVER = "192.168.56.101"
 DOMAIN = "IFTS"
-USERNAME = "IFTS\\Administrator"   # ⚠️ reemplazá con tu usuario AD real
-PASSWORD = "IFTS.2025"          # ⚠️ reemplazá con la contraseña real
+USERNAME = "IFTS\\Administrator"   
+PASSWORD = "IFTS.2025"          
 
 try:
     print("🔄 Intentando conectar con el servidor LDAP...")
