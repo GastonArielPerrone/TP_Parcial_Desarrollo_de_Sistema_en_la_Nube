@@ -174,9 +174,42 @@ REST_FRAMEWORK = {
 }
 
 AUTHENTICATION_BACKENDS = [
+    'apps.empleados.auth_backend.ActiveDirectoryBackend',
     'django.contrib.auth.backends.ModelBackend'
 ]
 
 # Configuración LDAP
+
 LDAP_HOST = "192.168.56.101"
+
 LDAP_DOMAIN = "IFTS"
+
+LDAP_REQUIRED_GROUPS = ['Gerencia', 'RecursosHumanos', 'SoporteTecnico']
+
+
+
+LOGGING = {
+
+    'version': 1,
+
+    'disable_existing_loggers': False,
+
+    'handlers': {
+
+        'console': {
+
+            'class': 'logging.StreamHandler',
+
+        },
+
+    },
+
+    'root': {
+
+        'handlers': ['console'],
+
+        'level': 'INFO',
+
+    },
+
+}
