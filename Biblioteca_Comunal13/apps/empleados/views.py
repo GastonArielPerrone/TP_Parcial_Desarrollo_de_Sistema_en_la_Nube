@@ -23,7 +23,7 @@ def index(request):
         password = request.POST.get('password')
 
         if not dni or not password:
-            messages.error(request, "Debes ingresar DNI y contraseña.")
+            messages.error(request, "Debe ingresar usuario y contraseña de AD.")
             return render(request, 'index.html', {})
 
         # Parámetros del servidor LDAP
